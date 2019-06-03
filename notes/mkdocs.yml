@@ -1,5 +1,8 @@
 site_name: Python DS
 nav:
     - Home: index.md
-    - About: about.md
+    - Notes: notes.md
+    - Examples: examples.md
+    - Problems: problems.md
+    - Log: log.md
 theme: mkdocs

@@ -1,0 +1,50 @@
+# Notes
+
+## CH 0: Organization of Chapters
+
+#### Three things required to build good understanding of data structure are:
+
+* How the information is arranged in the memory of the computer?
+* Become familiar with the algorithms for manipulating the information contained in the data structure.
+* Understand the performance characteristics of the data structure.
+    * to select a suitable data structure for a particular application.
+
+### Definitions
+
+**Recursion** is the process of defining a function or calculating a number by the repeated application of an algorithm.
+
+**Backtracking** The solution process consists of working through a sequence of decision points in which each choice leads further along some path (example Trees or Graphs). In case of incorrect choice somewhere along the way, developer has to backtrack to a previous decision point and try a different path. Backtracking algorithms use this approach, moreover, it's a form of recursion.
+
+**Linked Lists** (dynamic) Number of nodes can grow and shrink on demand. Used to create trees, graphs, hashing, etc.
+
+**Stacks** (abstract) A container of objects that are inserted and removed according to the last-in-first-out `LIFO` principle. Applications:
+
+* Internal creation of function parameters and local variables.
+* Compiler's syntax check for matching braces; Support for recursion.
+* Can act as an auxiliary data structure for other abstract data types.
+
+**Queues** (abstract) Similar to *stacks* but follow `FIFO`. Applications:
+
+* In OS, for controlling access to shared system resources such as printers, files, communication lines, disks and tapes.
+* Computer systems must often provide a holding area `buffer` for messages between two processes, two programs, or even two systems.
+* Can act as an auxiliary data structure for other abstract data types.
+
+**Trees** (abstract) Data organization to make the data insertion or deletion or search faster. Applications:
+
+* Library db, School's student db, employ or patient db; any db would be implemented using trees.
+* OS file systems; Can act as an auxiliary data structure for other abstract data types.
+
+Tree variants are classified by the number of children and the way of interconnecting them.
+
+**Priority Queues** (abstract) Maintain a collection of prioritized elements. Application: operating systems often use a priority queue for the ready queue of processes to run on the CPU.
+
+**Graphs** (fundamental - non linear) Collection of nodes `vertices` and their connections `edges`. Used to model many types of relations and processes.
+
+**Disjoint Set** (abstract) Collection of disjoint sets `partition`. Example: *Motorola*, *YouTube*, and *Android* are all members of the *Google* set.
+Two operations:
+
+* Union: merging of two sets into one!
+* Find Query: takes an item and returns which set it belongs to. Application: Maze generation and Kruskal's algo for computing the minimum spanning tree of a graph.
+
+**Sorting** Arranges the elements of a list in a certain order; sometimes reduces the complexity of problem significantly. Applications: searching elements and db algorithms.
+
