@@ -4,5 +4,6 @@ nav:
     - Notes: notes.md
     - Examples: examples.md
     - Problems: problems.md
+    - Quick Review: review.md
     - Log: log.md
 theme: mkdocs
