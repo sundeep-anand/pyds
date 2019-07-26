@@ -8,6 +8,7 @@
 * Stores data elements based on an sequential, most commonly 0 based, index.
 * Based on Tuples from set theory.
 * They are one of the oldest, most commonly used data structure.
+* Can be many-dimensional to represent matrices
 
 ##### What you need to know
 
@@ -22,7 +23,7 @@
 
 * **Indexing** Linear Array: O(1), Dynamic Array: O(1)
 * **Search** Linear Array: O(n), Dynamic Array: O(n)
-* **Optimized Search** Linear Array: O(log n), Dynamic Array: O(log n)
+* **Optimized Search** Linear Array: O(log n), Dynamic Array: O(log n) is Binary Search
 * **Insertion** Linear Array: N/A, Dynamic Array: O(n)
 
 ### Linked List
@@ -36,7 +37,7 @@
 ##### What you need to know
 
 * Designed to optimize insertion and deletion, slow at indexing and searching.
-* **Doubly linked list** has nodes that reference the previous node.
+* **Doubly linked list** has nodes that also reference the previous node.
 * **Circular linked list** is simple linked list whose **tail**, the last node, references the **head**, the first node.
 * **Stack**, commonly implemented with linked lists but can be made from arrays too.
     * Stack are **last in, first out** (LIFO) data structures.
@@ -50,14 +51,14 @@
 * **Indexing** Linked Lists: O(n)
 * **Search** Linked Lists: O(n)
 * **Optimized Search** Linked Lists: O(n)
-* **Insertion** Linked Lists: O(1)
+* **Insertion** Linked Lists: O(n)
 
 ### Hash Table or Hash Map
 
 ##### Definition
 
-* Stores data with key value pairs.
-* **Hash functions** accept a key and return an output unique only to that specific key.
+* Stores data with key value pairs. And don't generally have an order.
+* **Hash functions** accept arbitrary sized data and map it to fixed size data. The mapping is not guaranteed to be unique.
     * This is known as **hashing**, which is the concept that an input and an output have a one-to-one correspondence to map information.
     * Hash functions return a unique address in memory for that data.
 
@@ -158,4 +159,205 @@
 * If using a DFS on a tree that is very deep you might go unnecessarily deep in the search.
 * Breadth First Search tends to be a looping algorithm.
 * Depth First Search tends to be a recursive algorithm.
-         
+* Breadth-first search is guaranteed to find a shortest possible path through a graph. Depth-first search is not (and usually does not).
+* DFS and BFS have no defined order in which the elements are searched.
+
+(*In the specific case of searching a tree for a specific node, there is only one possible path, so both will return the same result, but search algorithms are very rarely used this way; typically, they operate on arbitrary graphs.*
+
+*Additionally worth knowing is that most practically-used searching and pathfinding algorithms (e.g. Dijkstra's algorithm, A) are specializations of breadth-first search.*)
+
+#### Worst case space complexity:
+
+##### Data Structures:
+* Array: O(n)
+* Linked List: O(n)
+* Hash Table: O(n)
+* BST: O(n)
+
+##### Sorting:
+* Quick Sort: O(log(n))
+* Merge Sort: O(n)
+* Bubble Sort: O(1)
+
+## Efficient Sorting Basics
+
+### Merge Sort
+
+##### Definition
+
+* A comparision based sorting algorithm
+    * Divides entire data set into groups of at most two.
+    * Compares each number one at a time, moving the smallest number to left of the pair.
+    * Once all pairs sorted then, it compares left most elements of the two left most pairs creating a sorted group of four with the smallest numbers on the left and the largest ones on the right.
+    * This process is repeated until there is only one set.
+
+##### What you need to know
+
+* This is one of the most basic sorting algorithms.
+* Know that it divides all the data into as small possible sets then compares them.
+
+##### Big O Efficiency
+
+* Best Case Sort: Merge Sort O(n log n)
+* Average Case Sort: Merge Sort O(n log n)
+* Worst Case Sort: Merge Sort O(n log n)
+
+### Quick Sort
+
+##### Definition
+
+* A comparision based sorting algorithm
+    * Divides entire dataset in half by selecting the middle element and putting all smaller elements to the left of the average.
+    * It repeats this process on the left side until it is comparing only two elements at which point the left side is sorted.
+    * When the left side is finished sorting it performs the same operation on the right side.
+* Computer architecture favours the quicksort process.
+
+(Edit: *Quicksort picks a random element from the dataset as the pivot element, then sorts all elements smaller before that and all greater than the pivot after it.
+Then quicksort is executed on the part left of the pivot and right of it*.)
+
+##### What you need to know
+
+* While it has the same Big O as (or worse in some cases) many other sorting algorithms it is often faster in practice than merge sort.
+* Know that it halves the data set by the average continuously until all the information is sorted.
+
+##### Big O Efficiency
+
+* Best Case Sort: Quick Sort: O(n)
+* Average Case Sort: Quick Sort: O(n log n)
+* Worst Case Sort: Quick Sort: O(n^2)
+
+### Bubble Sort
+
+##### Definition
+
+* A comparision based sorting algorithm
+    * It iterates left to right comparing every couplet, moving the smaller element to the left.
+    * It repeats this process until it no longer moves an element to the left.
+
+##### What you need to know
+
+* While it is very simple to implement, it is the least efficient of these three sorting methods.
+* Know that it moves one space to the right comparing two elements at a time and moving the smaller on to left.
+
+##### Big O Efficiency
+
+* Best Case Sort: Bubble Sort: O(n)
+* Average Case Sort: Bubble Sort: O(n^2)
+* Worst Case Sort: Bubble Sort: O(n^2)
+
+#### Merge Sort vs Quick Sort
+
+* Quick Sort is likely faster in practice.
+* Merge Sort divides the set into the smaller possible groups immediately then reconstructs the incrementally as it sorts the groupings.
+* Quick Sort continually divides the set by the average, until the set is recursively sorted.
+
+## Basic Types of Algorithms
+
+### Recursive Algorithms
+
+##### Definition
+
+* An algorithm that calls itself in it's definition.
+    * **Recursive case** is a conditional statement that is used to trigger the recursion.
+    * **Base case** is a conditional statement that is used to break the recursion.
+
+##### What you need to know
+
+* **Stack level too deep** and **stack overflow**
+    * If you have seen either of these from a recursive algorithm, you messed up.
+    * It means that your base case was never triggered because it was faulty or the problem was so massive you ran out of stack before reaching it.
+    * Knowing weather or not you will reach a base case is integral to correctly using recursion.
+    * Often used in **Depth First Search**.
+
+### Iterative Algorithms
+
+##### Definition
+
+* An algorithm that is called repeatedly but for a finite number of times, each time being a single iteration.
+    * Often used to move incrementally through a data set.
+
+##### What you need to know
+
+* Generally you will see iteration as loops: for, while and until statements.
+* Think of iteration as moving one at a time through a set.
+* Often used to move through an array.
+
+##### Recursion vs Iteration
+
+* The differences between recursion and iteration can be confusing to distinguish since both can be used to implement the other. But know that,
+    * Recursion is, usually, more expressive and easier to implement.
+    * Iteration uses less memory. (*that's not true when the compiler or interpreter supports tail-call elimination, or can otherwise optimize recursive functions.*)
+* **Functional languages** tend to use recursion. (i.e. Haskell)
+* **Imperative languages** tend to use iteration. (i.e. Ruby)
+
+### Greedy Algorithm
+
+##### Definition
+
+* An algorithm that, while executing, selects only the information that meets a certain criteria.
+* The general five components:
+    * A candidate set, from which a solution is created.
+    * A selection function, which chooses the best candidate to be added to the solution.
+    * A feasibility function, that is used to determine if a candidate can be used to contribute to a solution.
+    * An objective function, which assigns a valve to a solution, or a partial solution.
+    * A solution function, which indicate when we have discovered a complete solution.
+
+##### What you need to know
+
+* Used to find the optimal solution to a given problem.
+* Generally used on sets of data where only a small proportion of the information evaluated meets the desired result.
+* Often a greedy algorithm can help reduce the Big O of an algorithm.
+
+##### Pseudo Code of a Greedy Algorithm to find largest difference of any two numbers in an array
+
+```bash
+greedy algorithm (array)
+    var largest difference = 0
+    var new difference = find next difference (array[n], array[n+1])
+    largest difference = new difference if new difference is > largest difference
+    repeat above two steps until all the differences have been found
+    return largest difference
+``` 
+
+This algorithm never needed to compare all the differences to one another, saving it an entire iteration.
+
+### Stream I/O
+
+##### Definition
+
+* A stream is an abstract representation of sequence of bytes.
+* It is usually buffered to prevent representing the entire sequence of bytes in memory at one time.
+* Generally one-way and forward-only
+* Has significant advantages over a standard array of bytes
+
+##### What you need to know
+
+* Can be stored:
+    * In memory
+    * Transferred over a network
+    * On disk
+    * In a database
+
+* Advantages over byte arrays
+    * Efficient use of memory
+    * Smaller memory footprint
+
+* Uses
+    * Transferring files between persistence locations
+    * Compression / Decompression
+    * Encryption / Decryption
+    * Throttling
+
+* Can be chained
+* Some are one-way (NetworkStream, CipherStream, etc), others can seek in either direction.
+
+
+### Summary
+
+S.No. | Name | Indexing | Search | Insertion | Optimized Search
+----- | ---- | -------- | ------ | --------- | ----------------
+1 | Linear Array | O(1) | O(n) | N/A | O(log n)
+2 | Dynamic Array | O(1) | O(n) | o(n) | O(log n)
+3 | Linked List | O(n) | O(n) | O(1) | O(n)
+4 | Hash Table | O(1) | O(1) | O(1) | 
+5 | Binary Tree | O(log n) | O(log n) | O(log n) | 
