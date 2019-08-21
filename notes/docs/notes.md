@@ -2,6 +2,8 @@
 
 ## CH 1: Introduction
 
+*find the complexity of any given algorithm*
+
 #### 1.1 Variables
 
 Variables are names (x and y) of the placeholders for representing data.
@@ -15,10 +17,63 @@ A set of data with predefined values, example: integer, floating point, unit num
 
 #### 1.3 Data Structures
 
-Particular way of storing and organizing in a computer so that it can be used efficiently. Example `arrays`, `files`, `linked list`, `stacks`, `queues`, `trees`, `graphs` and so on.
+A special format for organizing and storing data so that it can be used efficiently. Example `arrays`, `files`, `linked list`, `stacks`, `queues`, `trees`, `graphs` and so on.
 
 * Linear data structure: Linked List, Stacks and Queues.
 * Non-linear data structure: Trees and Graphs.
+
+#### 1.4 Abstract Data Types (ADTs)
+
+When we combine the data structures with their operations.
+An ADT has two parts:
+
+  * Declaration of data
+  * Declaration of operations.
+ 
+Few examples are `Linked Lists`, `Stacks`, `Queues`, `Priority Queues`, `Binary Trees`, `Dictionaries`, `Disjoint Sets (Union and Find)`, `Hash Tables`, `Graphs` and many others.
+
+#### 1.5 What is an Algorithm? 1.6 Why the Analysis of Algorithms?
+
+The step-by-step unambiguous instructions to solve a given problem. Criteria:
+
+* Correctness (*Does the algorithm give solution to the problem in a finite number of steps?*)
+* Efficiency (*How much resources - memory and time - does it take to execute?*)
+
+Helps us to determine which algorithm is most efficient in terms of time and space consumed.
+
+#### 1.8 What is Running Time Analysis?
+
+The process of determining how processing time increases as the size of the problem (input size) increases. Common types:
+
+* Size of an array
+* Polynomial degree
+* Number of elements in a matrix
+* Number of bits in the binary representation of the input
+* Vertices and edges in a graph
+
+#### 1.9 How to compare Algorithms
+
+Let us assume that we express the running time of a given algorithm as a function of the input size **n** (*i.e. f(n)*) and compare these different functions corresponding to running times. This kind of comparison is independent of machine time, programming style, etc.
+
+#### 1.10 What is rate of growth?
+
+The rate at which the running time increases as a function of input is called *rate of growth*. n<sup>4</sup> + 2n<sup>2</sup> + 100n + 500 ~ n<sup>4</sup>
+
+#### 1.11 Commonly Used Rates of Growth
+
+Time Complexity | Name | Example
+--- | --- | ---
+1 | Constant | Adding an element to the front of the linked list
+log n | Logarithmic | Finding an element in a sorted array
+n | Linear | Finding an element in a unsorted array
+n log n | Linear Logarithmic | Sorting n items by `divide-n-conquer` - MergeSort
+n<sup>2</sup> | Quadratic | Shortest path between two nodes in a graph
+n<sup>3</sup> | Cubic | Matrix Multiplication
+2<sup>n</sup> | Exponential | The Towers of Hanoi problem
+
+
+
+
 
 ___
 
