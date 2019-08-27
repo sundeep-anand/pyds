@@ -189,6 +189,26 @@ An ADT has two parts:</p>
 </tr>
 </tbody>
 </table>
+<h4 id="112-types-of-analysis">1.12 Types of Analysis</h4>
+<p>Algorithm can be represented with multiple expressions: one for the case where it takes less time (<em>best case</em>) and another for the case where it takes more time (<em>worst case</em>).</p>
+<ul>
+<li>Worst case: Defines the input for which the algorithm takes a long time (slowest time to complete). f(n) = n<sup>2</sup> + 500</li>
+<li>Best case: Defines the input for which the algorithm takes the least time (fastest time to complete). f(n) = n + 100n + 500</li>
+<li>Average case: Run the algorithm many times, using many different inputs that come from some distribution that generates these inputs, compute the total running time (by adding the individual times), and divide by the number of trails.</li>
+</ul>
+<pre><code class="text">Lower Bound &lt;= Average Time &lt;= Upper Bound
+</code></pre>
+
+<h4 id="113-big-o-notation">1.13 Big-O Notation</h4>
+<p>Represented as <code>f(n) = O(g(n))</code>, where g(n) gives the maximum rate of growth for f(n) at larger values of n. n<sub>0</sub>, called as threshold, is the point from which we need to consider the rate of growth for a given algorithm. Defined as </p>
+<p><code>O(g(n)) = {f(n): there exist positive constants c and n<sub>0</sub> such that 0 &lt;= f(n) &lt;= cg(n) for all n &gt;= n<sub>0</sub>}</code></p>
+<h4 id="115-omega-notation">1.15 Omega-Ω Notation</h4>
+<p>This notation gives the tighter lower bound of the given algorithm and we represent it as <code>f(n) = Ω(g(n))</code>. That means, at larger values of n, the tighter lower bound of f(n) is g(n). 2n = Ω(n), n<sup>3</sup> = Ω(n<sup>3</sup>), logn = Ω(logn) Defined as</p>
+<p><code>Ω(g(n)) = {f(n): there exist positive constants c and n<sub>0</sub> such that 0 &lt;= cg(n) &lt;= f(n) for all n &gt;= n<sub>0</sub>}</code></p>
+<h4 id="116-theta-notation">1.16 Theta-Θ Notation</h4>
+<p>This notation decides whether the upper and lower bounds of a given function (algorithm) are the same. If the upper bound (O) and the lower bound (Ω) give the same result, then the Θ notation will also have the same rate of growth. Defined as</p>
+<p><code>Θ(g(n)) = {f(n): there exist positive constants c<sub>1</sub>, c<sub>2</sub> and n<sub>0</sub> such that 0 &lt;= c<sub>1</sub>g(n) &lt;= f(n) &lt;= c<sub>2</sub>g(n) for all n &gt;= n<sub>0</sub>}</code></p>
+<h5 id="for-analysis-best-case-worst-case-and-average-we-try-to-give-the-upper-bound-o-and-lower-bound-and-average-running-time-we-generally-focus-on-upper-bound-o-gn-is-the-asymptotic-curve-for-fn">For analysis (<code>best case</code>, <code>worst case</code> and <code>average</code>), we try to give the upper bound (O) and lower bound (Ω) and average running time (Θ). We generally focus on upper bound (O). g(n) is the asymptotic curve for f(n).</h5>
 <hr />
 <h2 id="ch-0-organization-of-chapters">CH 0: Organization of Chapters</h2>
 <h4 id="three-things-required-to-build-good-understanding-of-data-structure-are">Three things required to build good understanding of data structure are:</h4>
