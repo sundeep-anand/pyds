@@ -141,7 +141,7 @@ An ADT has two parts:</p>
 <h4 id="19-how-to-compare-algorithms">1.9 How to compare Algorithms</h4>
 <p>Let us assume that we express the running time of a given algorithm as a function of the input size <strong>n</strong> (<em>i.e. f(n)</em>) and compare these different functions corresponding to running times. This kind of comparison is independent of machine time, programming style, etc.</p>
 <h4 id="110-what-is-rate-of-growth">1.10 What is rate of growth?</h4>
-<p>The rate at which the running time increases as a function of input is called <em>rate of growth</em>. n<sup>4</sup> + 2n<sup>2</sup> + 100n + 500 ~ n<sup>4</sup></p>
+<p>The rate at which the running time increases as a function of input is called <em>rate of growth</em>. <code>n<sup>4</sup> + 2n<sup>2</sup> + 100n + 500 ~ n<sup>4</sup></code></p>
 <h4 id="111-commonly-used-rates-of-growth">1.11 Commonly Used Rates of Growth</h4>
 <table>
 <thead>
@@ -209,6 +209,28 @@ An ADT has two parts:</p>
 <p>This notation decides whether the upper and lower bounds of a given function (algorithm) are the same. If the upper bound (O) and the lower bound (Ω) give the same result, then the Θ notation will also have the same rate of growth. Defined as</p>
 <p><code>Θ(g(n)) = {f(n): there exist positive constants c<sub>1</sub>, c<sub>2</sub> and n<sub>0</sub> such that 0 &lt;= c<sub>1</sub>g(n) &lt;= f(n) &lt;= c<sub>2</sub>g(n) for all n &gt;= n<sub>0</sub>}</code></p>
 <h5 id="for-analysis-best-case-worst-case-and-average-we-try-to-give-the-upper-bound-o-and-lower-bound-and-average-running-time-we-generally-focus-on-upper-bound-o-gn-is-the-asymptotic-curve-for-fn">For analysis (<code>best case</code>, <code>worst case</code> and <code>average</code>), we try to give the upper bound (O) and lower bound (Ω) and average running time (Θ). We generally focus on upper bound (O). g(n) is the asymptotic curve for f(n).</h5>
+<h4 id="118-guidelines-for-asymptotic-analysis">1.18 Guidelines for Asymptotic Analysis</h4>
+<ul>
+<li><strong>Loops</strong>: The running time of a loop is the running time of the statements inside the loop (including tests) multiplied by the number of iterations. <code>Total time = a constant c x n = cn = O(n)</code></li>
+<li><strong>Nested Loops</strong>: Total running time is the product of the sizes of all the loops. <code>Total time = c x n x n = cn<sup>2</sup> = O(n<sup>2</sup>)</code></li>
+<li><strong>Consecutive statements</strong>: Add the time complexities of each statement. <code>Total time = c<sub>0</sub> + c<sub>1</sub>n + c<sub>2</sub>n<sup>2</sup> = O(n<sup>2</sup>)</code></li>
+<li><strong>If-then-else statements</strong>: Worst-case running time: the test, plus either the <em>then</em> part <em>or</em> the else part. <code>Total time = c<sub>0</sub> + c<sub>1</sub> * n = O(n)</code></li>
+<li><strong>Logarithmic complexity</strong>: An algorithm is O(logn) if it takes a constant time to cut the problem size by a fraction (usually by <sup>1</sup>/<sub>2</sub>). <code>Total time = log(2<sup>k</sup>) = klog2 = O(logn)</code> An example: binary search (finding a word in a dictionary of n pages) (<strong>1</strong>) Look at the center point in the dictionary (<strong>2</strong>) Is the word towards the left or right of the center? (<strong>3</strong>) Repeat the process with the left or right part of the dictionary until the word is found.</li>
+</ul>
+<h4 id="121-master-theorem-for-divide-and-conquer-recurrences">1.21 Master Theorem for Divide and Conquer Recurrences</h4>
+<p>Divide and conquer algorithms divide the problem into sub-problems, each of which is a part of the original problem, and then perform some additional work to compute the final answer. Example: for a merge sort algorithm, running time equation could be <code>T(n) = 2T(<sup>n</sup>/<sub>2</sub>) + O(n)</code></p>
+<h4 id="126-amortized-analysis">1.26 Amortized Analysis</h4>
+<p>Amortized analysis is a worst-case analysis, but for a sequence of operations rather than for individual operations. It generally applies to a method that consists of a sequence of operations, where the vast majority of the operations are cheap, but some of the operations are expensive.</p>
+<p>When one event in a sequence affects the cost of later events:</p>
+<ul>
+<li>One particular task may be expensive.</li>
+<li>But it may leave data structure in a state that the next few operations become easier.</li>
+</ul>
+<p><strong>Example</strong>: Let us consider an array of elements from which we want to find the k<sup>th</sup> smallest element. We can solve this problem using sorting. After sorting the given array, we just need to return the k<sup>th</sup> element from it. The cost of performing the sort (assuming comparison based sorting algorithm) is O(nlogn). If we perform <em>n</em> such selections then the average cost of each selection is O(nlogn/n) = O(logn). This clearly indicates that sorting once is reducing the complexity of subsequent operations.</p>
+<p><em>Observations</em>:</p>
+<ul>
+<li>While the recurrence relation looks exponential, the solution to the recurrence relation here gives a different result.</li>
+</ul>
 <hr />
 <h2 id="ch-0-organization-of-chapters">CH 0: Organization of Chapters</h2>
 <h4 id="three-things-required-to-build-good-understanding-of-data-structure-are">Three things required to build good understanding of data structure are:</h4>

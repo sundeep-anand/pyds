@@ -91,11 +91,55 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#problems">Problems</a></li>
+            <li><a href="#ch-1-introduction">CH 1: Introduction</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="problems">Problems</h1></div>
+<h1 id="problems">Problems</h1>
+<h2 id="ch-1-introduction">CH 1: Introduction</h2>
+<h4 id="problem-28-write-a-recursive-function-for-the-running-time-tn-of-the-function-given-below">Problem-28: Write a recursive function for the running time T(n) of the function given below.</h4>
+<pre><code class="python">
+def function(n):
+    count = 0
+    if n &lt;= 0:
+        return
+    for i in range(0, n):           # Outer loop executes n times
+        for j in range(0, n):       # Inner loop executes n times
+            count = count + 1
+    function(n-3)                   # Recursive call
+    print(count)
+
+function(20)
+
+</code></pre>
+
+<p>The recursive for this call is <code>T(n) = T(n-3) + cn<sup>2</sup></code> for some constant c &gt; 0. Using Substraction and Conquer master theorem, we get <code>T(n) = Θ(n<sup>3</sup>)</code></p>
+<h4 id="problem-34-consider-the-following-program">Problem-34: Consider the following program.</h4>
+<pre><code class="python">
+def Fib(n):
+    if n == 0: return 0
+    elif n == 1: return 1
+    else: return Fib(n-1) + Fib(n-2)
+
+print(Fib(3))
+
+</code></pre>
+
+<p>The recurrence relation for the running time of this program is: <code>T(n) = T(n-1) + T(n-2) + c</code>. Note T(n) has two recurrence calls indicating a binary tree. Each step recursively calls the program for n reduced by 1 and 2, so the depth of the recurrence tree is O(n). The number of leaves at depth n is 2<sup>n</sup> since this is a full binary tree, and each leaf takes at least O(1) computations for the constant factor. Running time is clearly exponential in n and it is O(2<sup>n</sup>).</p>
+<h4 id="problem-38-what-is-the-running-time-of-the-following-recursive-function">Problem-38: What is the running time of the following recursive function?</h4>
+<pre><code class="python">
+def function(n):
+    if n &lt;= 0:
+        return 0
+    for i in range(0, 3):
+        function(n-1)
+
+function(20)
+
+</code></pre>
+
+<p><code>T(n) = c + 3T(n-1), if n &gt; 1 = Θ(3<sup>n</sup>)</code></p></div>
         </div>
 
         <footer class="col-md-12">
