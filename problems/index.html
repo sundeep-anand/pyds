@@ -97,7 +97,7 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="problems">Problems</h1>
-<h2 id="ch-1-introduction">CH 1: Introduction</h2>
+<h3 id="ch-1-introduction">CH 1: Introduction</h3>
 <h4 id="problem-28-write-a-recursive-function-for-the-running-time-tn-of-the-function-given-below">Problem-28: Write a recursive function for the running time T(n) of the function given below.</h4>
 <pre><code class="python">
 def function(n):
@@ -139,7 +139,27 @@ function(20)
 
 </code></pre>
 
-<p><code>T(n) = c + 3T(n-1), if n &gt; 1 = Θ(3<sup>n</sup>)</code></p></div>
+<p><code>T(n) = c + 3T(n-1), if n &gt; 1 = Θ(3<sup>n</sup>)</code></p>
+<h4 id="problem-49-find-the-complexity-of-the-below-function">Problem-49: Find the complexity of the below function.</h4>
+<pre><code class="python">
+count = 0
+
+def logarithms(n):
+    i = 1
+    global count
+    while i &lt;= n:
+        j = n
+        while j &gt; 0:
+            j = j // 2              # this loop executes logn times
+            count = count + 1
+            i = i * 2               # this loop executes logn times
+    return count
+
+print(logarithms(10))
+
+</code></pre>
+
+<p><code>T(n) = O(logn * logn) = O(log<sup>2</sup>n)</code></p></div>
         </div>
 
         <footer class="col-md-12">
