@@ -100,8 +100,44 @@
 
 <h1 id="notes">Notes</h1>
 <h2 id="ch-2-recursion-and-backtracking">CH 2: Recursion and Backtracking</h2>
-<h4 id="22-what-is-recursion">2.2 What is recursion?</h4>
-<p>A recursive method solves a problem by calling a copy of itself to work on a smaller problem. It is important to ensure that the recursion terminates. The sequence of smaller problems must eventually converge on the base case.</p>
+<h4 id="22-23-what-is-recursion-and-why">2.2 2.3 What is recursion? and Why?</h4>
+<p>A recursive method solves a problem by calling a copy of itself to work on a smaller problem. It is important to ensure that the recursion terminates. The sequence of smaller problems must eventually converge on the base case. Generally, loops are turned into recursive functions when they are compiled or interpreted.</p>
+<h4 id="25-recursion-and-memory">2.5 Recursion and Memory</h4>
+<p>Each recursive call makes a new copy of that method (actually only the variables) in memory. Once a method ends (that is, returns some data), the copy of that returning method is removed from memory.</p>
+<h4 id="26-recursion-versus-iteration">2.6 Recursion versus Iteration</h4>
+<p><strong>Recursion</strong></p>
+<ul>
+<li>Terminates when base case is reached.</li>
+<li>Each recursive call requires extra space on the stack frame (memory).</li>
+<li>If we get infinite recursion, the program may run out of memory and result in stack overflow.</li>
+<li>Solutions to some problems are easier to formulate recursively.</li>
+</ul>
+<p>Examples: Fibonacci Series, Factorial Finding, Merge Sort, Quick Sort, Binary Search, Tree Traversals, Graph Traversals, Dynamic Programming, Divide and Conquer, Towers of Hanoi, and Backtracking Algorithms</p>
+<p><strong>Iteration</strong></p>
+<ul>
+<li>Terminates when a condition proven to be false.</li>
+<li>Each iteration does not require an extra space.</li>
+<li>An infinite loop could loop forever since there is no extra memory being created.</li>
+<li>Iterative solutions to a problem may not always be as obvious as a recursive solution.</li>
+</ul>
+<h4 id="210-what-is-backtracking">2.10 What is Backtracking?</h4>
+<p>Backtracking systematically searches for a solution to a problem among all available options. We start with one possible option out of many available options and try to solve the problem if we are able to solve the problem with the selected move then we will print the solution else we will backtrack and select some other option and try to solve it. Backtracking can be thought of as a selective tree/graph traversal method.</p>
+<ul>
+<li>Sometimes the best algorithm for a problem is to try all possibilities.</li>
+<li>This is always slow, but there are standard tools that can be used to help.</li>
+<li>Tools: algorithms for generating basic objects, such as binary strings [2<sup>n</sup> possibilities for n-bit string], permutations <code>[n!]</code>, combinations <code>[n!/r!(n-1)!]</code>, general strings [k -ary strings of length n has k<sup>n</sup> possibilities], etc...</li>
+<li>Backtracking speeds the exhaustive search by pruning.</li>
+</ul>
+<p>Example Algorithms:</p>
+<ul>
+<li>Binary Strings: generating all binary strings</li>
+<li>Generating k -ary Strings</li>
+<li>N-Queens Problem</li>
+<li>The Knapsack Problem</li>
+<li>Generalized Strings</li>
+<li>Hamiltonian Cycles</li>
+<li>Graph Coloring Problem</li>
+</ul>
 <hr />
 <h2 id="ch-1-introduction">CH 1: Introduction</h2>
 <p><em>find the complexity of any given algorithm</em></p>
