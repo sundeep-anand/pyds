@@ -1,8 +1,10 @@
 site_name: Python DS
 nav:
     - Home: index.md
-    - Notes: notes.md
-    - Examples: examples.md
+    - Chapters I:
+        - 2. Backtracking: chapters/backtracking.md
+        - 1. Introduction: chapters/introduction.md
+        - 0. Organization: chapters/organization.md
     - Problems: problems.md
     - Quick Review: review.md
     - Log: log.md
