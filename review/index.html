@@ -9,76 +9,74 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
         <title>Quick Review - Python DS</title>
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="..">Python DS</a>
-                </div>
+                <a class="navbar-brand" href="..">Python DS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
+                <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="..">Home</a>
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
                             </li>
-                            <li >
-                                <a href="../notes/">Notes</a>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Chapters I <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../chapters/backtracking/" class="dropdown-item">2. Backtracking</a>
+</li>
+                                    
+<li>
+    <a href="../chapters/introduction/" class="dropdown-item">1. Introduction</a>
+</li>
+                                    
+<li>
+    <a href="../chapters/organization/" class="dropdown-item">0. Organization</a>
+</li>
+                                </ul>
                             </li>
-                            <li >
-                                <a href="../examples/">Examples</a>
+                            <li class="navitem">
+                                <a href="../problems/" class="nav-link">Problems</a>
                             </li>
-                            <li >
-                                <a href="../problems/">Problems</a>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Quick Review</a>
                             </li>
-                            <li class="active">
-                                <a href="./">Quick Review</a>
-                            </li>
-                            <li >
-                                <a href="../log/">Log</a>
+                            <li class="navitem">
+                                <a href="../log/" class="nav-link">Log</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../problems/">
+                            <li class="nav-item">
+                                <a rel="prev" href="../problems/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li >
-                                <a rel="prev" href="../log/">
+                            <li class="nav-item">
+                                <a rel="next" href="../log/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -88,29 +86,41 @@
         </div>
 
         <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#data-structure-basics">Data Structure Basics</a></li>
-            <li><a href="#arrays">Arrays</a></li>
-            <li><a href="#linked-list">Linked List</a></li>
-            <li><a href="#hash-table-or-hash-map">Hash Table or Hash Map</a></li>
-            <li><a href="#binary-tree">Binary Tree</a></li>
-        <li class="main "><a href="#search-basics">Search Basics</a></li>
-            <li><a href="#breadth-first-search">Breadth First Search</a></li>
-            <li><a href="#depth-first-search">Depth First Search</a></li>
-        <li class="main "><a href="#efficient-sorting-basics">Efficient Sorting Basics</a></li>
-            <li><a href="#merge-sort">Merge Sort</a></li>
-            <li><a href="#quick-sort">Quick Sort</a></li>
-            <li><a href="#bubble-sort">Bubble Sort</a></li>
-        <li class="main "><a href="#basic-types-of-algorithms">Basic Types of Algorithms</a></li>
-            <li><a href="#recursive-algorithms">Recursive Algorithms</a></li>
-            <li><a href="#iterative-algorithms">Iterative Algorithms</a></li>
-            <li><a href="#greedy-algorithm">Greedy Algorithm</a></li>
-            <li><a href="#stream-io">Stream I/O</a></li>
-            <li><a href="#summary">Summary</a></li>
-    </ul>
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#data-structure-basics" class="nav-link">Data Structure Basics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#search-basics" class="nav-link">Search Basics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#efficient-sorting-basics" class="nav-link">Efficient Sorting Basics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#basic-types-of-algorithms" class="nav-link">Basic Types of Algorithms</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
 </div></div>
-                <div class="col-md-9" role="main">
+                    <div class="col-md-9" role="main">
 
 <h2 id="data-structure-basics">Data Structure Basics</h2>
 <h3 id="arrays">Arrays</h3>
@@ -553,6 +563,7 @@ Then quicksort is executed on the part left of the pivot and right of it</em>.)<
 </tr>
 </tbody>
 </table></div>
+            </div>
         </div>
 
         <footer class="col-md-12">
@@ -566,21 +577,21 @@ Then quicksort is executed on the part left of the pivot and right of it</em>.)<
         <script src="../js/base.js" defer></script>
         <script src="../search/main.js" defer></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
             </div>
             <div class="modal-body">
                 <p>
                     From here you can search these documents. Enter
                     your search terms below.
                 </p>
-                <form role="form">
+                <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
                 <div id="mkdocs-search-results"></div>
@@ -589,12 +600,12 @@ Then quicksort is executed on the part left of the pivot and right of it</em>.)<
             </div>
         </div>
     </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
             </div>
             <div class="modal-body">
               <table class="table">
