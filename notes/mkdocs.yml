@@ -1,11 +1,11 @@
-site_name: Python DS
+site_name: Python A.DS
 nav:
     - Home: index.md
-    - Chapters I:
+    - Chapters 1-7:
         - 2. Backtracking: chapters/backtracking.md
         - 1. Introduction: chapters/introduction.md
         - 0. Organization: chapters/organization.md
-    - Problems: problems.md
     - Quick Review: review.md
+    - Problems: problems.md
     - Log: log.md
 theme: mkdocs
