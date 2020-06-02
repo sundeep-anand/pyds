@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>2. Backtracking - Python DS</title>
+        <title>2. Backtracking - Python A.DS</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -23,7 +23,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="../..">Python DS</a>
+                <a class="navbar-brand" href="../..">Python A.DS</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
                                 <a href="../.." class="nav-link">Home</a>
                             </li>
                             <li class="dropdown active">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Chapters I <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Chapters 1-7 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
@@ -54,10 +54,10 @@
                                 </ul>
                             </li>
                             <li class="navitem">
-                                <a href="../../problems/" class="nav-link">Problems</a>
+                                <a href="../../review/" class="nav-link">Quick Review</a>
                             </li>
                             <li class="navitem">
-                                <a href="../../review/" class="nav-link">Quick Review</a>
+                                <a href="../../problems/" class="nav-link">Problems</a>
                             </li>
                             <li class="navitem">
                                 <a href="../../log/" class="nav-link">Log</a>
@@ -100,6 +100,10 @@
             
             <li class="nav-item" data-level="1"><a href="#ch-2-recursion-and-backtracking" class="nav-link">CH 2: Recursion and Backtracking</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#notes" class="nav-link">Notes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -109,10 +113,23 @@
 
 <h1 id="ch-2-recursion-and-backtracking">CH 2: Recursion and Backtracking</h1>
 <hr />
-<h4 id="22-23-what-is-recursion-and-why">2.2 2.3 What is recursion? and Why?</h4>
-<p>A recursive method solves a problem by calling a copy of itself to work on a smaller problem. It is important to ensure that the recursion terminates. The sequence of smaller problems must eventually converge on the base case. Generally, loops are turned into recursive functions when they are compiled or interpreted.</p>
+<h2 id="notes">Notes</h2>
+<p><div style="padding: 1%;background-color: #f2fafc;margin-bottom: 1%"></div></p>
+<h4 id="22-what-is-recursion">2.2 What is Recursion?</h4>
+<p>A recursive method solves a problem by calling a copy of itself to work on a smaller problem. It is important to ensure that the recursion terminates. The sequence of smaller problems must eventually converge on the base case. </p>
+<h4 id="23-why-recursion">2.3 Why Recursion?</h4>
+<p>Generally, loops are turned into recursive functions when they are compiled or interpreted.</p>
 <h4 id="25-recursion-and-memory">2.5 Recursion and Memory</h4>
 <p>Each recursive call makes a new copy of that method (actually only the variables) in memory. Once a method ends (that is, returns some data), the copy of that returning method is removed from memory.</p>
+<pre><code>def print_func(n):
+    if n == 0:                  # this is the terminating base case
+        return 0
+    else:
+        print n
+        return print_func(n-1)  # recursive call to itself again
+    print(print_func(4))
+</code></pre>
+
 <h4 id="26-recursion-versus-iteration">2.6 Recursion versus Iteration</h4>
 <p><strong>Recursion</strong></p>
 <ul>
@@ -129,6 +146,26 @@
 <li>An infinite loop could loop forever since there is no extra memory being created.</li>
 <li>Iterative solutions to a problem may not always be as obvious as a recursive solution.</li>
 </ul>
+<h4 id="27-notes-on-recursion">2.7 Notes on Recursion</h4>
+<ul>
+<li>Recursive algorithms have two types of cases: <strong>recursive</strong> cases and <strong>base</strong> cases. </li>
+<li>Every recursive function case must terminate at a base case.</li>
+<li>Generally, iterative solutions are more efficient than recursive solutions (<em>due to overhead of function calls</em>).</li>
+<li>A recursive algorithm can be implemented without recursive function calls using a stack, but it's usually more trouble than its worth.</li>
+<li>For some problems, there are no obvious iterative algorithms. They're best suited for recursive solutions.</li>
+</ul>
+<h4 id="28-example-algorithms-of-recursion">2.8 Example Algorithms of Recursion</h4>
+<ul>
+<li>Fibonacci Series, Factorial Finding</li>
+<li>Merge Sort, Quick Sort</li>
+<li>Binary Search</li>
+<li>Tree Traversals and other problems: InOrder, PreOrder, PostOrder</li>
+<li>Graph Traversals: Depth First Search and Breadth First Search</li>
+<li>Dynamic Programming Examples</li>
+<li>Divide and Conquer Algorithms</li>
+<li>Tower of Hanoi</li>
+<li>Backtracking Algorithms</li>
+</ul>
 <h4 id="210-what-is-backtracking">2.10 What is Backtracking?</h4>
 <p>Backtracking systematically searches for a solution to a problem among all available options. We start with one possible option out of many available options and try to solve the problem if we are able to solve the problem with the selected move then we will print the solution else we will backtrack and select some other option and try to solve it. Backtracking can be thought of as a selective tree/graph traversal method.</p>
 <ul>
@@ -137,7 +174,7 @@
 <li>Tools: algorithms for generating basic objects, such as binary strings [2<sup>n</sup> possibilities for n-bit string], permutations <code>[n!]</code>, combinations <code>[n!/r!(n-1)!]</code>, general strings [k -ary strings of length n has k<sup>n</sup> possibilities], etc...</li>
 <li>Backtracking speeds the exhaustive search by pruning.</li>
 </ul>
-<p>Example Algorithms:</p>
+<p><strong>Example Algorithms:</strong></p>
 <ul>
 <li>Binary Strings: generating all binary strings</li>
 <li>Generating k -ary Strings</li>
