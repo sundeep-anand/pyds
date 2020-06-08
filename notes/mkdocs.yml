@@ -6,6 +6,5 @@ nav:
         - 1. Introduction: chapters/introduction.md
         - 0. Organization: chapters/organization.md
     - Quick Review: review.md
-    - Problems: problems.md
     - Log: log.md
 theme: mkdocs
