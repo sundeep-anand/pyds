@@ -57,9 +57,6 @@
                                 <a href="../../review/" class="nav-link">Quick Review</a>
                             </li>
                             <li class="navitem">
-                                <a href="../../problems/" class="nav-link">Problems</a>
-                            </li>
-                            <li class="navitem">
                                 <a href="../../log/" class="nav-link">Log</a>
                             </li>
                         </ul>
@@ -101,6 +98,10 @@
             <li class="nav-item" data-level="1"><a href="#ch-2-recursion-and-backtracking" class="nav-link">CH 2: Recursion and Backtracking</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#notes" class="nav-link">Notes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#problems" class="nav-link">Problems</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -182,7 +183,123 @@
 <li>Generalized Strings</li>
 <li>Hamiltonian Cycles</li>
 <li>Graph Coloring Problem</li>
-</ul></div>
+</ul>
+<h2 id="problems">Problems</h2>
+<p><div style="padding: 1%;background-color: #f2fafc;margin-bottom: 1%"></div></p>
+<h4 id="problem-1-discuss-towers-of-hanoi-puzzle">Problem-1: Discuss Towers of Hanoi puzzle.</h4>
+<p>The Towers of Hanoi consists of three rods (or pegs or towers) and a number of disks of different sizes which can slide onto any rod. The puzzle starts with the disks on one rod in ascending order of size, the smallest at the top, thus making a conical shape. The objective of the puzzle is to move the entire stack to another rod, satisfying the following rules:</p>
+<ul>
+<li>Only one disk may be moved at a time.</li>
+<li>Each move consists of taking the upper disk from one of the rods and sliding it onto another rod, on top of the other disks that may already be present on that rod.</li>
+<li>No disk may be placed on top of a smaller disk.</li>
+</ul>
+<p>Algorithm:</p>
+<ul>
+<li>Move the top <code>n-1</code> disks from Source to Auxiliary tower,</li>
+<li>Move the n<sup>th</sup> disk from Source to Destination tower,</li>
+<li>Move the <code>n-1</code> disks from Auxiliary tower to Destination tower.</li>
+<li>Transferring the top <code>n-1</code> disks from Source to Auxiliary tower can again be thought of as a fresh problem and can be solved in the same manner.</li>
+</ul>
+<pre><code class="python">
+def towers_of_hanoi(numberOfDisks, startPeg=1, endPeg=3):
+    if numberOfDisks:
+        towers_of_hanoi(numberOfDisks-1, startPeg, 6-startPeg-endPeg)
+        print(&quot;Move disk %d from peg %d to peg %d&quot; % (numberOfDisks, startPeg, endPeg))
+        towers_of_hanoi(numberOfDisks-1, 6-startPeg-endPeg, endPeg)
+
+towers_of_hanoi(numberOfDisks=4)
+
+</code></pre>
+
+<h4 id="problem-4-generate-all-the-strings-of-length-n-drawn-from-0-k-1">Problem-4: Generate all the strings of length n drawn from 0... k-1.</h4>
+<p>Let us assume we keep current k-ary string in an array A[0.. n-1].</p>
+<pre><code class="python">
+def range_to_list(k):
+    result = []
+    for i in range(0, k):
+        result.append(str(i))
+    return result
+
+def base_k_strings(n, k):
+    if n == 0: return []
+    if n == 1: return range_to_list(k)
+    return [digit+bitstring for digit in base_k_strings(1, k) for bitstring in base_k_strings(n-1, k)]
+
+print base_k_strings(4, 3)
+
+</code></pre>
+
+<p>Complexity would be O(k<sup>n</sup>).</p>
+<h4 id="problem-6-finding-the-length-of-connected-cells-of-1s-regions-in-a-matrix-of-0s-and-1s">Problem-6: Finding the length of connected cells of 1s (regions) in a matrix of 0s and 1s.</h4>
+<pre><code class="python">
+def getval(A, i, j, L, H):
+    if(i &lt; 0 or i &gt;= L or j &lt; 0 or j &gt;= H):
+        return 0
+    else:
+        return A[i][j]
+
+def find_max_block(A, r, c, L, H, size):
+    global maxsize
+    global cntarr
+    if(r &gt;= L or c &gt;= H):
+        return
+    cntarr[r][c] = 1
+    size += 1
+    if (size &gt; maxsize):
+        maxsize = size
+    # search in eight directions
+    direction = [[-1, 0], [-1, -1], [0, -1], [1, -1], [1, 0], [1, 1], [0, 1], [-1, 1]]
+    for i in range(0,7):
+        newi = r + direction[i][0]
+        newj = c + direction[i][1]
+        val = getval(A, newi, newj, L, H)
+        if (val &gt; 0 and (cntarr[newi][newj] == 0)):
+            find_max_block(A, newi, newj, L, H, size)
+    cntarr[r][c] = 0
+
+def get_max_ones(A, rmax, colmax):
+    global maxsize
+    global size
+    global cntarr
+
+    for i in range(0, rmax):
+        for j in range(0, colmax):
+            if(A[i][j] == 1):
+                find_max_block(A, i, j, rmax, colmax, 0)
+
+    return maxsize
+
+</code></pre>
+
+<h4 id="problem-7-path-finding-problem">Problem-7: Path finding problem</h4>
+<p>Given an n*n matrix of blocks with a source upper left block, we want to find the path from the source to the destination (<em>the lower right block</em>). We can only move downwards and to the left. Also a path is given by 1 and a wall is given by 0.</p>
+<p><strong>Algorithm</strong>:</p>
+<p>If we have reached the destination point return an array containing only the position of the destination else</p>
+<ol>
+<li>Move in the forwards direction and check if this leads to a solution.</li>
+<li>If option a does not work, then move down.</li>
+<li>If either work, add the current position to the solution obtained at either 1 or 2.</li>
+</ol>
+<pre><code class="python">
+def path_finder(Matrix, position, N):
+    # returns a list of the paths taken
+    if position == (N-1, N-1):
+        return [(N-1, N-1)]
+    x, y = position
+    if x + 1 &lt; N and Matrix[x+1][y] == 1:
+        a = path_finder(Matrix, (x + 1, y), N)
+        if a != None:
+            return [(x, y)] + a
+
+    if y + 1 &lt; N and Matrix[x][y+1] == 1:
+        b = path_finder(Matrix, (x, y + 1), N)
+        if b != None:
+            return [(x, y)] + b
+
+Matrix = [[1,1,1,1,0],[0,1,0,1,0],[0,1,0,1,0],[0,1,0,0,0],[1,1,1,1,1]]
+print(path_finder(Matrix, (0,0), 5))
+
+</code></pre></div>
             </div>
         </div>
 
