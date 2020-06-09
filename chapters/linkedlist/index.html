@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>0. Organization - Python A.DS</title>
+        <title>3. LinkedList - Python A.DS</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -41,7 +41,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../linkedlist/" class="dropdown-item">3. LinkedList</a>
+    <a href="./" class="dropdown-item active">3. LinkedList</a>
 </li>
                                     
 <li>
@@ -53,7 +53,7 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">0. Organization</a>
+    <a href="../organization/" class="dropdown-item">0. Organization</a>
 </li>
                                 </ul>
                             </li>
@@ -72,12 +72,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../introduction/" class="nav-link">
+                                <a rel="prev" href="../.." class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../review/" class="nav-link">
+                                <a rel="next" href="../backtracking/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -99,8 +99,12 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#ch-0-organization-of-chapters" class="nav-link">CH 0: Organization of Chapters</a>
+            <li class="nav-item" data-level="1"><a href="#ch-3-linked-lists" class="nav-link">CH 3: Linked Lists</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#notes" class="nav-link">Notes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -108,74 +112,234 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="ch-0-organization-of-chapters">CH 0: Organization of Chapters</h1>
+<h1 id="ch-3-linked-lists">CH 3: Linked Lists</h1>
 <hr />
-<div style="padding: 1%;background-color: #f2fafc;margin-bottom: 2%">
-    <h2>Notes</h2>
-</div>
+<h2 id="notes">Notes</h2>
+<p><div style="padding: 1%;background-color: #f2fafc;margin-bottom: 1%"></div></p>
+<h4 id="31-what-is-a-linked-list">3.1 What is a Linked List?</h4>
+<p>A data structure used for storing collections of data. Properties:</p>
+<ul>
+<li>Successive elements are connected by pointers</li>
+<li>The last element points to <code>NULL</code></li>
+<li>Can grow or shrink in size during execution of a program</li>
+<li>Can be made just as long as required (<em>until systems memory exhausts</em>)</li>
+<li>Does not waste memory space (<em>but takes some extra memory for pointers</em>). It allocates memory as list grows.</li>
+</ul>
+<h4 id="35-comparison-of-linked-lists-with-arrays-and-dynamic-arrays">3.5 Comparison of Linked Lists with Arrays and Dynamic Arrays</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Linked List</th>
+<th>Array</th>
+<th>Dynamic Array</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Indexing</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Insertion/deletion at beginning</td>
+<td>O(1)</td>
+<td>O(n), if array is not full (<em>for shifting the elements</em>)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Deletion at ending</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Insertion in middle or <br/>Deletion in middle</td>
+<td>O(n)</td>
+<td>O(n), if array is not full (<em>for shifting the elements</em>)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Wasted space</td>
+<td>O(n) (<em>for pointers</em>)</td>
+<td>0</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="36-singly-linked-lists">3.6 Singly Linked Lists</h4>
+<p>This list consists of a number of nodes in which each node has a next pointer to the following element. The link of the last node in the list is <code>NULL</code>.</p>
+<pre><code class="python">
+# Node of a Singly Linked List
+class Node:
 
-<h4 id="three-things-required-to-build-good-understanding-of-data-structure-are">Three things required to build good understanding of data structure are:</h4>
-<ul>
-<li>How the information is arranged in the memory of the computer?</li>
-<li>Become familiar with the algorithms for manipulating the information contained in the data structure.</li>
-<li>Understand the performance characteristics of the data structure.<ul>
-<li>to select a suitable data structure for a particular application.</li>
-</ul>
-</li>
-</ul>
-<h3 id="definitions">Definitions</h3>
-<p><strong>Recursion</strong> is the process of defining a function or calculating a number by the repeated application of an algorithm.</p>
-<p><strong>Backtracking</strong> The solution process consists of working through a sequence of decision points in which each choice leads further along some path (example Trees or Graphs). In case of incorrect choice somewhere along the way, developer has to backtrack to a previous decision point and try a different path. Backtracking algorithms use this approach, moreover, it's a form of recursion.</p>
-<p><strong>Linked Lists</strong> (dynamic) Number of nodes can grow and shrink on demand. Used to create trees, graphs, hashing, etc.</p>
-<p><strong>Stacks</strong> (abstract) A container of objects that are inserted and removed according to the last-in-first-out <code>LIFO</code> principle. Applications:</p>
-<ul>
-<li>Internal creation of function parameters and local variables.</li>
-<li>Compiler's syntax check for matching braces; Support for recursion.</li>
-<li>Can act as an auxiliary data structure for other abstract data types.</li>
-</ul>
-<p><strong>Queues</strong> (abstract) Similar to <em>stacks</em> but follow <code>FIFO</code>. Applications:</p>
-<ul>
-<li>In OS, for controlling access to shared system resources such as printers, files, communication lines, disks and tapes.</li>
-<li>Computer systems must often provide a holding area <code>buffer</code> for messages between two processes, two programs, or even two systems.</li>
-<li>Can act as an auxiliary data structure for other abstract data types.</li>
-</ul>
-<p><strong>Trees</strong> (abstract) Data organization to make the data insertion or deletion or search faster. Applications:</p>
-<ul>
-<li>Library db, School's student db, employ or patient db; any db would be implemented using trees.</li>
-<li>OS file systems; Can act as an auxiliary data structure for other abstract data types.</li>
-</ul>
-<p>Tree variants are classified by the number of children and the way of interconnecting them.</p>
-<p><strong>Priority Queues</strong> (abstract) Maintain a collection of prioritized elements. Application: operating systems often use a priority queue for the ready queue of processes to run on the CPU.</p>
-<p><strong>Graphs</strong> (fundamental - non linear) Collection of nodes <code>vertices</code> and their connections <code>edges</code>. Used to model many types of relations and processes.</p>
-<p><strong>Disjoint Set</strong> (abstract) Collection of disjoint sets <code>partition</code>. Example: <em>Motorola</em>, <em>YouTube</em>, and <em>Android</em> are all members of the <em>Google</em> set.
-Two operations:</p>
-<ul>
-<li>Union: merging of two sets into one!</li>
-<li>Find Query: takes an item and returns which set it belongs to. Application: Maze generation and Kruskal's algo for computing the minimum spanning tree of a graph.</li>
-</ul>
-<p><strong>Sorting</strong> Arranges the elements of a list in a certain order; sometimes reduces the complexity of problem significantly. Applications: searching elements and db algorithms.</p>
-<p><strong>Searching</strong> The process of finding an item with specified properties from a collection of items. Data organization improves the searching process.</p>
-<p><strong>Selection Algo</strong> (<em>k<sup>th</sup></em> order statistic) Finding the minimum, maximum and median elements in a given list.</p>
-<p><strong>Symbol Tables</strong> (dictionaries) Examples: spelling checker, data dictionary found in DBMS, symbol tables generated by loaders, assemblers, and compilers, as well as routing tables in networking components (DNS Lookup).</p>
-<p><strong>Hashing</strong> Technique used for storing and retrieving information as fast as possible. Used in optimal search and symbol tables. The worst case complexity of hashing is O(n), but it gives O(1) on the average.</p>
-<p><strong>String Algo</strong> Operations like auto completion (on CLI or browser) or string matching need a data structure which stores the string data efficiently.</p>
-<p><strong>Algo Design Techniques</strong> There are different ways of classifying the algorithms like Greedy, Divide and Conquer, and Dynamic Programming.</p>
-<p><strong>Greedy Algo</strong> (<em>single-minded</em> algorithm) Process that looks for a simple, easy to implement solutions to complex, multi-step problems by deciding which next step will provide the most obvious benefit. Example: selection sort, Prim's algorithms, Kruskal's algorithms, Dijkstra algorithm, Huffman coding algorithm etc.</p>
-<p><strong>Divide and Conquer</strong> Principles: (examples include binary search, merge sort, etc.)</p>
-<ul>
-<li>Divide - break the problem into several subproblems that are similar to the original problem but smaller in size.</li>
-<li>Conquer - solve the subproblems recursively.</li>
-<li>Base case - If the subproblem size is small enough then solve the subproblem directly without more recursion.</li>
-<li>Combine - the solutions to create a solution for the original problem.</li>
-</ul>
-<p><strong>Dynamic Programming</strong> (optimization over plain recursion) Breaking down a complex problem into a collection of simpler subproblems. Solving each of those and storing their solutions using a memory-based data structure (array, map, etc).</p>
-<p><strong>Complexity Classes</strong> (resources required during computation - time vs space) Classification is done based on the running time (or memory) that an algorithm takes for solving the problem.</p>
-<p><strong>Bit-wise Hacking</strong> Applications:</p>
-<ul>
-<li>Kind of file format or network protocol that uses individual bits or group of bits to represent pieces of information.</li>
-<li>Setting individual pixels on the screen by directly manipulating the video memory, where every pixel's color is represented by 1 or 4 bits.</li>
-<li>Compute some kind of checksum (possibly, parity or CRC) or hash value.</li>
-</ul></div>
+    def __init__(self):
+        self.data = None
+        self.next = None
+
+    def set_data(self, data):
+        self.data = data
+
+    def get_data(self):
+        return self.data
+
+    def set_next(self, next):
+        self.next = next
+
+    def get_next(self, next):
+        return self.next
+
+    def has_next(self):
+        return self.next != None
+
+</code></pre>
+
+<p><strong>Traversing the Linked List</strong></p>
+<pre><code class="python">
+def list_length(self):
+    current = self.head
+    count = 0
+
+    while current != None:
+        count += 1
+        current = current.get_next()
+    return count
+
+</code></pre>
+
+<p>Time Complexity: O(n) and Space Complexity: O(1)</p>
+<p><strong>Inserting a Node</strong></p>
+<pre><code class="python">
+def insert_at_beginning(self, data):
+    new_node = Node()
+    new_node.set_data(data)
+
+    if self.length == 0:
+        self.head = new_node
+    else:
+        new_node.set_next(self.head)
+        self.head = new_node
+    self.length += 1
+
+def insert_at_end(self, data):
+    new_node = Node()
+    new_node.set_data(data)
+
+    current = self.head
+
+    while current.get_next() != None:
+        current = current.get_next()
+
+    current.set_next(new_node)
+    self.length += 1
+
+def insert_at_pos(self, pos, data):
+    if pos &gt; self.length or pos &lt; 0:
+        return None
+    else:
+        if pos == 0:
+            self.insert_at_beginning(data)
+        else:
+            if pos == self.length:
+                self.insert_at_end(data)
+            else:
+                new_node = Node()
+                new_node.set_data(data)
+                count = 1
+                current = self.head
+
+                while count &lt; pos-1:
+                    count += 1
+                    current = current.get_next()
+                new_node.set_next(current.get_next())
+                current.set_next(new_node)
+                self.length += 1
+
+</code></pre>
+
+<p>Time Complexity: O(n) and Space Complexity: O(1)</p>
+<p><strong>Deleting a Node</strong></p>
+<pre><code class="python">
+def delete_from_beginning(self):
+    if self.length == 0:
+        print(&quot;The list is empty&quot;)
+    else:
+        self.head = self.head.get_next()
+        self.length -= 1
+
+def delete_last_node_from_singly_listed_list(self):
+    if self.length == 0:
+        print(&quot;The list is empty&quot;)
+    else:
+        currentnode = self.head
+        previousnode = self.head
+
+        while currentnode.get_next() != None:
+            previousnode = currentnode
+            currentnode = currentnode.get_next()
+
+        previousnode.set_next(None)
+        self.length -= 1
+
+def delete_from_linked_list_with_node(self, node):
+    if self.length == 0:
+        raise ValueError(&quot;List is empty&quot;)
+    else:
+        current = self.head
+        previous = None
+        found = False
+
+        while not found:
+            if current = node:
+                found = True
+            elif current is None:
+                raise ValueError(&quot;Node not in Linked List&quot;)
+            else:
+                previous = current
+                current = current.get_next()
+
+        if previous is None:
+            self.head = current.get_next()
+        else:
+            previous.set_next(current.get_next())
+        self.length -= 1
+
+def delete_value(self, value):
+    currentnode = self.head
+    previousnode = self.head
+
+    while currentnode.next != None or currentnode.value != value:
+        if currentnode.value == value:
+            previousnode.next = currentnode.next
+            self.length -= 1
+            return
+        else:
+            previousnode = currentnode
+            currentnode = currentnode.next
+    print(&quot;The value provided is not present&quot;)
+
+def delete_at_position(self, pos):
+    count = 0
+    currentnode = self.head
+    previousnode = self.head
+
+    if pos &gt; self.length or pos &lt; 0:
+        print(&quot;The position does not exist&quot;)
+    else:
+        while currentnode.next != None or count &lt; pos:
+            count += 1
+            if count == pos:
+                previousnode.next = currentnode.next
+                self.length -= 1
+                return
+            else:
+                previousnode = currentnode
+                currentnode = currentnode.next
+
+</code></pre>
+
+<p>Time Complexity: O(n) and Space Complexity: O(1)</p></div>
             </div>
         </div>
 
