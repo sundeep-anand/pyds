@@ -82,6 +82,7 @@ Backtracking systematically searches for a solution to a problem among all avail
 * Hamiltonian Cycles
 * Graph Coloring Problem
 
+---
 ## Problems
 <div style="padding: 1%;background-color: #f2fafc;margin-bottom: 1%"></div>
 
